@@ -26,4 +26,6 @@ def getDiscountPrice(price):
     return price
 
 ## python logging statemnt
-print(getDiscountPrice(250))
+price = 200
+print('Discount price for $', price, 'is:')
+print(getDiscountPrice(price))
