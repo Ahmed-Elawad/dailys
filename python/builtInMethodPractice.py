@@ -43,3 +43,12 @@ integer = 10
 floating_number = float(integer)
 print('Integer:', integer)
 print('Float version:', floating_number)
+
+# boolean
+# bool(input)
+# 0, empty string -> FALSE
+# strings, nums != 0 -> TRUE
+print('Bool of 0:', bool(0))
+print('Bool of 1:', bool(1))
+print('Bool of "Hi":', bool("Hi"))
+print('Bool of "":', bool(""))

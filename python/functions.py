@@ -58,3 +58,10 @@ print(map(lambda value: 1, my_list)) ## I like my ones ;)
 # returns a filtered object
 # convet to list using list()
 print(filter(lambda value: value < 2, my_list))
+
+
+## range
+# returns a list of values
+# range(start, end, step)
+# range(1, 10, 2) -> [1, 3, 5, 7, 9]
+print(range(1, 10, 2))
