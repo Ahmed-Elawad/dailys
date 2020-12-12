@@ -22,15 +22,16 @@ let findDups = (name, price, weight) => {
         reference = {index: 0},
         dupCount = 0;
 
+    
     // helper function to create instance of list item
         // only none dups
     const createInstance = (isNew, name, price, weight) => {
         if (isNew) {
-            reference[name] = [reference.index];
             listStorage.push([price, weight]);
         } else {
             reference[name].push(reference.index);
         }
+        reference[name] = [reference.index];
         reference.index++;
         return;
     };
@@ -40,13 +41,13 @@ let findDups = (name, price, weight) => {
         // otherwise increment dup count
     name.forEach((itemName, i) => {
         let itemPrice = price[i],
-            itemWeght = weight[i];
+            itemWeight = weight[i];
             if (reference[itemName] === undefined) {
-                createInstance(true, itemName, itemPrice, itemWeght);
+                createInstance(true, itemName, itemPrice, itemWeight);
             } else {
                 reference[itemName].forEach((index) => {
-                    if (listStorage[index][0] !== itemPrice || listStorage[index[1] !== itemWeght]) {
-                        createInstance(false, itemName, itemPrice, itemWeght);
+                    if (listStorage[index][0] !== itemPrice || listStorage[index[1] !== itemWeight]) {
+                        createInstance(false, itemName, itemPrice, itemWeight);
                     } else {
                         dupCount++;
                     }
@@ -59,3 +60,5 @@ let findDups = (name, price, weight) => {
 }
 
 let noDups = findDups(['Ahmed', 'Ahmed', 'Ahmed'], [1, 1, 3], [1, 1, 1]);
+debugger;
+console.log(noDups);
