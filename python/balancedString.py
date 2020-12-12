@@ -19,9 +19,12 @@ def check_balance(string):
         else:
             num_of_opening_brackets += 1
         
+        if num_of_opening_brackets < 0:
+            break
+        
     if not num_of_opening_brackets:
         return True
     return False
 
 result = check_balance('[[[]]][]')
-print(result)
+print(result) # expect true
