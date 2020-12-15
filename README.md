@@ -4,7 +4,7 @@
 </p>
 
 A collection of daily probelms using
-- [ ] JavaScript
+- [x] JavaScript
 - [ ] C++
-- [ ] Python3
-- [ ] Java
+- [x] Python3
+- [x] Java
