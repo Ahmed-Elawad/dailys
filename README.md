@@ -3,9 +3,12 @@
 <img src="https://img.shields.io/github/languages/top/Ahmed-Elawad/dailys" />  
 </p>
 
+<div align="center">
+  <img src="https://github.com/Ahmed-Elawad/dailys/main/imgs/quote.png" />
+</div>
+
 A collection of daily probelms using
 - [x] JavaScript
-- [ ] C++
 - [x] Python3
 - [x] Java
 
