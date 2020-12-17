@@ -4,7 +4,7 @@
 </p>
 
 <div align="center">
-  <img src="https://github.com/Ahmed-Elawad/dailys/main/imgs/quote.png" />
+  <img src="https://github.com/Ahmed-Elawad/dailys/imgs/quote.png" />
 </div>
 
 A collection of daily probelms using
