@@ -59,6 +59,5 @@ let findDups = (name, price, weight) => {
     return dupCount;
 }
 
-let noDups = findDups(['Ahmed', 'Ahmed', 'Ahmed'], [1, 1, 3], [1, 1, 1]);
-debugger;
+let noDups = findDups(['Ahmed', 'Ahmed', 'Ahmed', 'Ahmed'], [1, 1, 3, 1], [1, 1, 1, 1]);
 console.log(noDups);
