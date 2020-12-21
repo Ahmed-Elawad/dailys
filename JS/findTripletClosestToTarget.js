@@ -10,11 +10,22 @@
  * Output: 1
  * Explanation: The triplet [-2, 1, 2] has the closest sum to the target.
  * Example 2:
+ *  -2 -> 0, 1, 2
+ *           *  * -> 1 return 1
+ *   0 -> 1, 2
+ *         * * -> 3
+ *  1 -> 2 -> 3 xxxx
  * 
  * Input: [-3, -1, 1, 2], target=1
  * Output: 0
  * Explanation: The triplet [-3, 1, 2] has the closest sum to the target.
  * Example 3:
+ * 
+ * - 3 -> -1 , 1, 2
+ *         *      * -> -2 
+ *             * * -> 0 return 0
+ * -1 -> 1, 2 -> 2 
+ *  1, 2, -> 3 XX
  * 
  * Input: [1, 0, 1, 1], target=100
  * Output: 3
@@ -22,40 +33,39 @@
  */
 
 const tripletCloseToTarget = (arr, target) => {
-    let lessThanSum = -Infinity,
-        greaterSum = Infinity;
-
-    arr  = arr.sort((a, b) => a - b);
-
+    // sort the array O(n * log(n))
+    // define some arbitrary min and max sums
+    arr = arr.sort((a, b) => a - b);
+    let leastSum = -Infinity,
+        greatestSum = Infinity;
+    
+    // traverse the array assinging a min and max sum if they are closest to the target
     for (let i = 0; i < arr.length; i++) {
         let compliment = arr[i];
-        if (arr[i] === arr[i - 1]) continue;
-        let left = i + 1;
-        let right = arr.length -1;
+        let remaining = arr.slice(0, i).concat(arr.slice(i + 1));
+        let left = 0, right = remaining.length - 1;
+
+        // use the remaining values to find all combinations for the target sum
         while (left < right) {
-            let sum = arr[left] + arr[right] + compliment;
+            let sum = compliment + remaining[left] + remaining[right];
             if (sum === target) return sum;
-            else if (sum < target && sum > lessThanSum) lessThanSum = sum;
-            else if (sum < greaterSum) greaterSum = sum;
-            left += 1;
-            right -= 1;
-        }
+            else if (sum > target) {
+                right -= 1;
+                if (sum < greatestSum) greatestSum = sum;
+            } else {
+                left += 1;
+                if (sum > leastSum) leastSum = sum;
+            }
+        };
     }
-    console.log(lessThanSum)
-    console.log(greaterSum)
-    // get the distance of each sum from the target and return the least of the two
-    let lessSumDistance = target - lessThanSum;
-    let greaterSumDistance = greaterSum - target;
-    if (lessSumDistance === greaterSumDistance) return lessSumDistance;
-    if (lessSumDistance < greaterSumDistance) return lessThanSum;
-    return greaterSum;
+    
+    let distanceToLeastSum = target - leastSum;
+    let distanceToGreatesSum = greatestSum - leastSum;
+    if (distanceToGreatesSum === distanceToLeastSum) return leastSum;
+    if (distanceToLeastSum < distanceToGreatesSum) return leastSum;
+    return greatestSum;
 };
 
-let Input =  [-2, 0, 1, 2], target=2;
-console.log(tripletCloseToTarget(Input, target));
-
-// Input = [-3, -1, 1, 2], target=1;
-// console.log(tripletCloseToTarget(Input, target));
-
-// input =  [1, 0, 1, 1], target=100;
-// console.log(tripletCloseToTarget(Input, target));
+console.log(tripletCloseToTarget([0, -2, 1, 2], 2)); // 1
+console.log(tripletCloseToTarget([-3, 1, 1, 2], 1)); // 0
+console.log(tripletCloseToTarget([1, 0, 1, 1], 100)); // 3
