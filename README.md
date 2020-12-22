@@ -14,7 +14,8 @@ A collection of daily probelms using
 
 ## JS files
 A set of practice problems using general algorithmic reasoning to find a solution and note opitimizations. Each problem consists of one of the following patterns of algos:
-- [ ] window(subSet computations)
+- [ ] Window itereration: useful for finding contiguos subsets
+- [ ] Two Pointer: usefull for finding indicies of instances or uneven traversal
 
 ## Java & Python
 A set of basic programs and files employing the programming patterns of Java. This section is practice for developing a deeper understanding of Java 
