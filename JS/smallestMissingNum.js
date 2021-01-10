@@ -45,4 +45,3 @@ console.log(findSmallestMissingValue([3])); // => [3]
 console.log(findSmallestMissingValue( [-3, 1, 5, 4, 2])); // => 3
 console.log(findSmallestMissingValue([3, -2, 0, 1, 2]))// => 4
 console.log(findSmallestMissingValue([3, 2, 5, 1])); // => 4
-
